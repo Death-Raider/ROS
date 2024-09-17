@@ -5,7 +5,9 @@ class Wheel:
         self.name = wheel_name
         self.rpm = 0
         self.direction = 0
-        self.orientation = 0
+        self.orientation = 0 # 0 is +x and counted in anticlockwise direction around z axis
+        self.pos = [0.0]*7
+        self.pos[-1] = 1.0
 
     def set_orientation(self,ornt):
         self.orientation = ornt
@@ -15,4 +17,4 @@ class Wheel:
     
     def set_rpm(self, rpm):
         self.rpm = rpm
-    
+

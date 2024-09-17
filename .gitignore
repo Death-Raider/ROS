@@ -1,3 +1,7 @@
-test1/build
-test1/install
-test1/log
+build
+install
+log
+__pycache__
+**/*.cpython
+**/*.pyc
+.venv

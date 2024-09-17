@@ -1,9 +1,11 @@
 from geometry_msgs.msg import TransformStamped
-from tf2_ros import TransformBroadcaster
+from tf2_ros import TransformBroadcaster, StaticTransformBroadcaster
 
 class TransfromManager:
-    def __init__(self,node_cls):
-        self.broadcast = TransformBroadcaster(node_cls)
+    def __init__(self,node_cls, type:str):
+        if type not in ('static', 'dynamic'):
+            print("Defaulting to Static Transform Broadcast")
+        self.broadcast = TransformBroadcaster(node_cls) if type == 'dynamic' else StaticTransformBroadcaster(node_cls)
         self.transform = TransformStamped()
 
     def set_transform(self,parent:str,child:str,transform:list[float],timestamp=None):
