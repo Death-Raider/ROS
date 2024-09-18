@@ -23,7 +23,7 @@ class Rotation:
         x_new = m11 * x + m12 * y + m13 * z
         y_new = m21 * x + m22 * y + m23 * z
         z_new = m31 * x + m32 * y + m33 * z
-        return (x_new, y_new, z_new)
+        return [x_new, y_new, z_new]
 
     def euler_to_quaternion(self,roll, pitch, yaw):
         """
@@ -47,4 +47,11 @@ class Rotation:
         y = cr * sp * cy + sr * cp * sy
         z = cr * cp * sy - sr * sp * cy
         
-        return x,y,z,w
+        return [x,y,z,w]
+    
+    def normalize(self,x,y,z):
+        norm = math.hypot(x,y,z)
+        return [x/norm, y/norm, z/norm]
+    
+    def scale(self,s,x,y,z):
+        return [x*s, y*s, z*s]

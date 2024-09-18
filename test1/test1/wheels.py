@@ -5,7 +5,8 @@ class Wheel:
         self.name = wheel_name
         self.rpm = 0
         self.direction = 0
-        self.orientation = 0 # 0 is +x and counted in anticlockwise direction around z axis
+        self.radius = 0.1
+        self.orientation = 0 # rotation angle about z axis (yaw)
         self.pos = [0.0]*7
         self.pos[-1] = 1.0
 
